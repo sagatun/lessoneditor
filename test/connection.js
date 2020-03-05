@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 //Connect to mongodb
 mongoose.connect(
-  "mongodb+srv://oyvindjt:EYi6WQN9DfPat58@cluster0-rem3a.azure.mongodb.net/test?retryWrites=true&w=majority"
+  "mongodb+srv://oyvindjt:EYi6WQN9DfPat58@lkkit2901-rem3a.azure.mongodb.net/test?retryWrites=true&w=majority",
+  { useNewUrlParser: true }
 );
 
 mongoose.connection
