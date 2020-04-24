@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose", { useUnifiedTopology: true });
 
 //Connect to mongodb
 mongoose.connect(

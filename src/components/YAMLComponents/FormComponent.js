@@ -1,5 +1,6 @@
 import React from "react";
 import FormPage from "./FormPage";
+import axios from "axios";
 
 class FormComponent extends React.Component {
   constructor(props) {
@@ -53,21 +54,24 @@ class FormComponent extends React.Component {
   mySubmitHandler = event => {
     event.preventDefault();
 
-    //const for yml creation
-    const fs = require("browserify-fs");
+    const lesson = {
+      course: this.state.course,
+      title: this.state.title,
+      author: this.state.author,
+      level: this.state.level,
+      translator: this.state.translator,
+      topic: this.state.topic,
+      subject: this.state.subject,
+      grade: this.state.grade,
+      submitted: false
+    };
 
-    //create yml file
-    fs.writeFile("lesson.yml", this.YMLstateToString(this.state), function(
-      err
-    ) {
-      if (err) throw err;
-    });
+    axios
+      .post("http://localhost:5000/lessons/add", lesson)
+      .then(res => console.log(res.data));
 
-    console.log("saved yml-file");
     console.log("YAML header: \n" + this.YAMLstateToString(this.state));
     console.log("\nYML-file: \n" + this.YMLstateToString(this.state));
-
-    // TODO: Send state-data to database
   };
 
   myCheckboxHandler = event => {
