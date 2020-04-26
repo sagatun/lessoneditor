@@ -7,6 +7,7 @@ import Editor from '../components/mdPreviewComponents/Editor';
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Overview from "./mypage/Overview";
+import Login from "./login/Login";
 
 class App extends React.Component {
   render() {
@@ -31,7 +32,10 @@ class App extends React.Component {
             <div className="controlPanelPlacement">
               <Editor />
             </div>
-          </Route>
+            </Route>
+            <Route path="/login">
+               <Login/>
+            </Route>
         </Switch>
       </Router>
     );
