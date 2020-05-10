@@ -7,6 +7,10 @@ body {
 /*This is the important css for the preview*/
 /* Previewer */
 
+.PreviewArea * {
+  white-space: pre-wrap;
+}
+
 .PreviewArea ul,
 ol {
   display: flex;
@@ -16,6 +20,18 @@ ol {
 
 .section_intro h1 {
   font-size: 41px;
+}
+
+hr {
+  display: none;
+}
+
+section h2 {
+  font-size: initial;
+  white-space: pre-line;
+  font-weight: normal;
+  display: block !important;
+  word-wrap: break-word !important;
 }
 
 .section_activity h1 {

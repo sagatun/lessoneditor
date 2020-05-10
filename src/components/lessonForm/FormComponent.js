@@ -1,6 +1,7 @@
 import "./formpage.css";
 import React from "react";
 import { connect } from "react-redux";
+import { storeYAMLheader } from "../../actions/";
 import { Redirect } from "react-router-dom";
 import FormPage from "./FormPage";
 import COURSELIST from "./settingsFiles/COURSELIST";
@@ -61,8 +62,11 @@ class FormComponent extends React.Component {
   submitHandler = event => {
     this.setState({ redirect: "/editor" });
 
+    this.props.storeYAMLheader(this.YAMLstateToString(this.state));
+
     console.log("YAML header: \n" + this.YAMLstateToString(this.state));
     console.log("\nYML-file: \n" + this.YMLstateToString(this.state));
+
     // TODO: Send state-data to database
   };
 
@@ -134,8 +138,9 @@ class FormComponent extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    isSignedIn: state.auth.isSignedIn
+    isSignedIn: state.auth.isSignedIn,
+    YAMLheader: state.YAMLheader
   };
 };
 
-export default connect(mapStateToProps)(FormComponent);
+export default connect(mapStateToProps, { storeYAMLheader })(FormComponent);

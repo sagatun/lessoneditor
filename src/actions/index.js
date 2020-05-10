@@ -3,7 +3,7 @@ import {
   PARSE_MD,
   SIGN_IN,
   SIGN_OUT,
-  ADD_FORM_VALUES
+  STORE_YAML_HEADER
 } from "./types";
 
 export const addText = text => {
@@ -12,6 +12,10 @@ export const addText = text => {
 
 export const parseMD = text => {
   return { type: PARSE_MD, payload: text };
+};
+
+export const storeYAMLheader = text => {
+  return { type: STORE_YAML_HEADER, payload: text };
 };
 
 export const signIn = (userId, firstName, lastName, imageUrl, email) => {
@@ -25,8 +29,4 @@ export const signOut = () => {
   return {
     type: SIGN_OUT
   };
-};
-
-export const formValues = values => {
-  return { type: ADD_FORM_VALUES, payload: values };
 };

@@ -2,7 +2,6 @@ import "./editor.css";
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Button, Icon, Popup } from "semantic-ui-react";
 import { addText, parseMD } from "../../../actions";
 import MDTextArea from "./MDTextArea";
 import MDPreview from "../mdPreview/MDPreview";
@@ -10,12 +9,10 @@ import { mdParser } from "../../../utils/mdParser";
 import ControlPanel from "./controlpanel/ControlPanel";
 import ProfileMenu from "../../ProfileMenu";
 import ImagePopup from "../ImagePopup";
-import PageButtons from "../../PageButtons";
 import {
   SAVING,
   SAVED,
   SECTION_TEXT,
-  PHOTO_TEXT,
   NAV_BUTTONS
 } from "../settingsFiles/languages/editor_NO";
 import {
@@ -115,6 +112,10 @@ class Editor extends React.Component {
     this.myCounter = setInterval(() => {
       this.setState({ counter: this.state.counter + 1 });
     }, 500);
+    inputText = this.props.YAMLheader + "\n\n";
+    this.props.addText(inputText);
+    this.props.parseMD(mdParser(inputText));
+    this.setState({ counter: 0 });
   }
 
   // remove counter
@@ -1020,7 +1021,8 @@ const mapStateToProps = state => {
   return {
     mdText: state.mdText,
     parseMD: state.parseMD,
-    isSignedIn: state.auth.isSignedIn
+    isSignedIn: state.auth.isSignedIn,
+    YAMLheader: state.YAMLheader
   };
 };
 
