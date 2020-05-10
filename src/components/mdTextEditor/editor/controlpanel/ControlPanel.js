@@ -28,6 +28,7 @@ const ControlPanel = props => {
     endOutput
   ) => {
     if (bTitle === "preview") {
+      console.log("bTitle=Preview");
       previewOnOff(props.handlePreview());
       props.handleButtonClick(
         bTitle,
@@ -36,14 +37,21 @@ const ControlPanel = props => {
         cursorIntOFF,
         endOutput
       );
-    } else if (bTitle === "showCustom") {
+    } else if (bTitle === "showCustom" || bTitle === "showCustomLarge") {
+      console.log("bTitle=showCustom or bTitle=showCustomLarge");
       if (showCustom === "none") {
+        console.log("showCustom=none");
         setShowCustom("flex");
+        return;
       } else {
+        console.log("showCustom=flex");
         setShowCustom("none");
+        return;
       }
     } else {
-      setShowCustom("none");
+      if (bTitle !== "showCustomLarge") {
+        console.log("bTitle not showCustomLarge");
+      }
       props.handleButtonClick(
         bTitle,
         output,
@@ -264,9 +272,9 @@ const ControlPanel = props => {
             ))}
           </div>
           <div className="space" />
-          <div style={{ display: showTextArea }} className="showCustom">
+          <div style={{ display: showTextArea }} className="showCustomLarge">
             <CPButton
-              bTitle="showCustom"
+              bTitle="showCustomLarge"
               icon=""
               output=""
               title="{ }"

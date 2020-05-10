@@ -12,6 +12,14 @@
   overflow: hidden;
 }
 
+.showCustomLarge {
+  display: none;
+}
+
+.showCustom {
+  display: flex;
+}
+
 .TextArea {
   width: 93vw;
   outline: none;
@@ -121,6 +129,14 @@
 }
 
 @media only screen and (min-width: 768px) {
+  .showCustomLarge {
+    display: flex;
+  }
+
+  .showCustom {
+    display: none;
+  }
+
   /* For desktop: */
   .flexContainer {
     display: flex;
