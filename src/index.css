@@ -7,10 +7,6 @@ body {
 /*This is the important css for the preview*/
 /* Previewer */
 
-.PreviewArea * {
-  white-space: pre-wrap;
-}
-
 .PreviewArea ul,
 ol {
   display: flex;
@@ -22,11 +18,11 @@ ol {
   font-size: 41px;
 }
 
-hr {
+.PreviewArea > hr {
   display: none;
 }
 
-section h2 {
+.PreviewArea > section > h2 {
   font-size: initial;
   white-space: pre-line;
   font-weight: normal;
@@ -108,14 +104,52 @@ section h2 {
 
 /* List styling */
 
-.PreviewArea ul li::before {
+/* .PreviewArea ul li::before {
   content: "";
   border-radius: 20px;
   border: 3px solid #abdbea;
   padding: 8px;
   float: left;
   margin-left: -35px;
-  margin-top: px;
+  margin-top: 20px;
+} */
+
+.PreviewArea ol li p {
+  position: relative;
+  top: 0px;
+}
+
+.PreviewArea ol li ul li {
+  list-style-type: circle;
+}
+
+.PreviewArea ol li ul li p {
+  margin-top: 0px;
+}
+
+.section_protip {
+  padding-top: 20px;
+}
+
+.section_protip ul li::before {
+  content: "";
+  border-radius: 20px;
+  border: 3px solid #abdbea;
+  padding: 8px;
+  float: left;
+  margin-left: -55px;
+
+  margin-top: 0px;
+}
+
+.section_protip ul li {
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.section_protip > ul > li > p {
+  position: relative;
+  left: -20px;
 }
 
 /* Checkbox styling */
