@@ -51,6 +51,7 @@ const ControlPanel = props => {
     } else {
       if (bTitle !== "showCustomLarge") {
         console.log("bTitle not showCustomLarge");
+        setShowCustom("none");
       }
       props.handleButtonClick(
         bTitle,
